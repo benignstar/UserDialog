@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
                 dlg.setPositiveButton("OK", new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        edit_name=(EditText)findViewById(R.id.edit_name);
-                        edit_email=(EditText)findViewById(R.id.edit_email);
+                        edit_name=(EditText)dialogView.findViewById(R.id.edit_name);
+                        edit_email=(EditText)dialogView.findViewById(R.id.edit_email);
 
                         text_name.setText(edit_name.getText().toString());
                         text_email.setText(edit_email.getText().toString());
@@ -45,8 +45,9 @@ public class MainActivity extends AppCompatActivity {
                 dlg.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast toast = new Toast();
+                        Toast toast = new Toast(MainActivity.this);
                         toastView=(View)View.inflate(MainActivity.this, R.layout.toast, null);
+          //              toast_text=(TextView)view.findViewById(R.id.to)
                         toast.setView(toastView);
                         toast.show();
                     }
